@@ -1,38 +1,30 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { useActions } from "react-redux";
 import { addTodo } from "../redux/actions";
 
-class AddTodo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { input: "" };
-    }
+export default () => {
+    const [input, setInput] = useState("");
+    const { addTodoAction } = useActions(
+        {
+            addTodoAction: input => addTodo(input)
+        },
+        []
+    );
 
-    updateInput = input => {
-        this.setState({ input });
+    const updateInput = input => {
+        setInput(input);
     };
 
-    handleAddTodo = () => {
-        this.props.addTodo(this.state.input);
-        this.setState({ input: "" });
+    const handleAddTodo = () => {
+        addTodoAction(input);
+        setInput("");
     };
-
-    render() {
-        return (
-            <div>
-                <input
-                    onChange={e => this.updateInput(e.target.value)}
-                    value={this.state.input}
-                />
-                <button className="add-todo" onClick={this.handleAddTodo}>
-                    Add Todo
-                </button>
-            </div>
-        );
-    }
-}
-
-export default connect(
-    null,
-    { addTodo }
-)(AddTodo);
+    return (
+        <div>
+            <input onChange={e => updateInput(e.target.value)} value={input} />
+            <button className="add-todo" onClick={handleAddTodo}>
+                Add Todo
+            </button>
+        </div>
+    );
+};
