@@ -1,21 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useActions } from "react-redux";
 import { toggleTodo } from "../redux/actions";
 
-const Todo = ({ todo, toggleTodo }) => {
+export default ({ todo }) => {
+    const { toggleTodoAction } = useActions(
+        {
+            toggleTodoAction: id => toggleTodo(id)
+        },
+        []
+    );
     const contentCss =
         todo && todo.completed
             ? "todo-item__text todo-item__text--completed"
             : "todo-item__text";
     return (
-        <li className="todo-item" onClick={() => toggleTodo(todo.id)}>
+        <li className="todo-item" onClick={() => toggleTodoAction(todo.id)}>
             {todo && todo.completed ? "👌" : "👋"}{" "}
             <span className={contentCss}>{todo.content}</span>
         </li>
     );
 };
-
-export default connect(
-    null,
-    { toggleTodo }
-)(Todo);
