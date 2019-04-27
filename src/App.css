@@ -35,7 +35,6 @@
 
 /** todo item **/
 .todo-item {
-    font-family: monospace;
     cursor: pointer;
     line-height: 1.5;
 }
@@ -51,5 +50,5 @@
     cursor: pointer;
 }
 .filter--active {
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid #61dafb;
 }

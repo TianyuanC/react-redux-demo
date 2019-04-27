@@ -5,13 +5,17 @@ import { VISIBILITY_FILTERS } from "../constants";
 
 const VisibilityFilters = ({ activeFilter, setFilter }) => {
     return (
-        <div className="visibility-filters">
+        <div className="App-link visibility-filters">
             {Object.keys(VISIBILITY_FILTERS).map(filterKey => {
                 const currentFilter = VISIBILITY_FILTERS[filterKey];
+                const filterCss =
+                    currentFilter === activeFilter
+                        ? "filter filter--active"
+                        : "filter";
                 return (
                     <span
                         key={`visibility-filter-${currentFilter}`}
-                        className={"filter"}
+                        className={filterCss}
                         onClick={() => {
                             setFilter(currentFilter);
                         }}

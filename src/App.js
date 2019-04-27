@@ -7,14 +7,12 @@ import "./App.css";
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <div className="todo-app">
-                    <h1>Todo List</h1>
-                    <AddTodo />
-                    <TodoList />
-                    <VisibilityFilters />
-                </div>
-            </header>
+            <div className="App-header">
+                <h1>Todo List</h1>
+                <AddTodo />
+                <TodoList />
+                <VisibilityFilters />
+            </div>
         </div>
     );
 }
