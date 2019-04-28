@@ -1,17 +1,9 @@
 import React from "react";
-import { useSelector, useActions } from "react-redux";
-import { setFilter } from "../redux/actions";
+import { useFilter } from "../effects/useFilter";
 import { VISIBILITY_FILTERS } from "../constants";
 
 export default () => {
-    const { setFilterAction } = useActions(
-        {
-            setFilterAction: filter => setFilter(filter)
-        },
-        []
-    );
-
-    const activeFilter = useSelector(state => state.visibilityFilter);
+    const { setFilterAction, activeFilter } = useFilter();
 
     return (
         <div className="App-link visibility-filters">
