@@ -10,6 +10,17 @@ function App() {
                 <AddTodo />
                 <TodoList />
                 <VisibilityFilters />
+
+                {/* <h1>Todo List 2</h1>
+                <AddTodo />
+                <TodoList />
+                <VisibilityFilters />
+
+
+                <h1>Todo List 3</h1>
+                <AddTodo />
+                <TodoList />
+                <VisibilityFilters /> */}
             </header>
         </div>
     );
