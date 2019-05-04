@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo completed item 1`] = `
+<li
+  className="todo-item"
+  onClick={[Function]}
+>
+  👌
+   
+  <span
+    className="todo-item__text todo-item__text--completed"
+  >
+    test
+  </span>
+</li>
+`;
+
+exports[`Todo incompleted item 1`] = `
+<li
+  className="todo-item"
+  onClick={[Function]}
+>
+  👋
+   
+  <span
+    className="todo-item__text"
+  >
+    test2
+  </span>
+</li>
+`;
