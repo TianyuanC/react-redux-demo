@@ -2,25 +2,20 @@ import React from "react";
 import { AddTodo, TodoList, VisibilityFilters } from "./components";
 import "./App.css";
 
+const TodoApp = ({ id }) => (
+    <>
+        <h1>Todo List {id}</h1>
+        <AddTodo />
+        <TodoList />
+        <VisibilityFilters />
+    </>
+);
+
 function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Todo List</h1>
-                <AddTodo />
-                <TodoList />
-                <VisibilityFilters />
-
-                {/* <h1>Todo List 2</h1>
-                <AddTodo />
-                <TodoList />
-                <VisibilityFilters />
-
-
-                <h1>Todo List 3</h1>
-                <AddTodo />
-                <TodoList />
-                <VisibilityFilters /> */}
+                <TodoApp id={1} />
             </header>
         </div>
     );
