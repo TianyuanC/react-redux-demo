@@ -4,9 +4,7 @@ import Todo from "./Todo";
 import { getVisibleTodos } from "../redux/selectors";
 
 export default () => {
-    const todos = useSelector(state =>
-        getVisibleTodos(state, state.visibilityFilter)
-    );
+    const todos = useSelector(state => getVisibleTodos(state));
 
     return (
         <ul className="todo-list">
