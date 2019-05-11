@@ -1,6 +1,6 @@
-import { useActions, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { setFilter } from "../redux/actions";
-
+import { useActions } from "./useActions";
 export const useFilter = () => {
     const { setFilterAction } = useActions(
         {

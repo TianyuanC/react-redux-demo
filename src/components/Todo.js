@@ -1,5 +1,5 @@
 import React from "react";
-import { useActions } from "react-redux";
+import { useActions } from "../effects/useActions";
 import { toggleTodo } from "../redux/actions";
 
 export default ({ todo }) => {
