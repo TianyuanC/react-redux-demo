@@ -1,13 +1,14 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "../redux/actions";
-import { useActions } from "./useActions";
+import { useCallback } from "react";
+
 export const useFilter = () => {
-    const { setFilterAction } = useActions(
-        {
-            setFilterAction: filter => setFilter(filter)
-        },
-        []
-    );
+    const dispatch = useDispatch();
+
+    const setFilterAction = useCallback(filter => dispatch(setFilter(filter)), [
+        dispatch
+    ]);
+
     const activeFilter = useSelector(state => state.visibilityFilter);
     return {
         setFilterAction,

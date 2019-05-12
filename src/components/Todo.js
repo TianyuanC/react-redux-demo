@@ -1,14 +1,12 @@
-import React from "react";
-import { useActions } from "../effects/useActions";
+import React, { useCallback } from "react";
 import { toggleTodo } from "../redux/actions";
-
+import { useDispatch } from "react-redux";
 export default ({ todo }) => {
-    const { toggleTodoAction } = useActions(
-        {
-            toggleTodoAction: id => toggleTodo(id)
-        },
-        []
-    );
+    const dispatch = useDispatch();
+    const toggleTodoAction = useCallback(id => dispatch(toggleTodo(id)), [
+        dispatch
+    ]);
+
     const contentCss =
         todo && todo.completed
             ? "todo-item__text todo-item__text--completed"

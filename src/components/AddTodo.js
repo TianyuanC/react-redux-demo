@@ -1,13 +1,12 @@
 import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions";
-//import { useActions } from "../effects/useActions";
 
 export default () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
     const addTodoAction = useCallback(input => dispatch(addTodo(input)), [
-        input
+        dispatch
     ]);
 
     const updateInput = input => {
