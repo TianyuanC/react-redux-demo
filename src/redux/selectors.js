@@ -2,7 +2,7 @@ import { VISIBILITY_FILTERS } from "../constants";
 
 import { createSelector } from "reselect";
 
-export const getTodosState = store => store.todos;
+export const getTodosState = store => store.todos.present;
 export const getVisibilityFilter = store => store.visibilityFilter;
 
 export const getTodos = createSelector(
@@ -24,3 +24,8 @@ export const getVisibleTodos = createSelector(
         }
     }
 );
+
+export const getUndoRedo = store => [
+    store.todos.past.length > 0,
+    store.todos.future.length > 0
+];

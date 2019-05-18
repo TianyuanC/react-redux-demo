@@ -1,5 +1,5 @@
 import React from "react";
-import { AddTodo, TodoList, VisibilityFilters } from "./components";
+import { AddTodo, TodoList, VisibilityFilters, UndoRedo } from "./components";
 import "./App.css";
 
 const TodoApp = ({ note }) => (
@@ -8,6 +8,7 @@ const TodoApp = ({ note }) => (
         <AddTodo />
         <TodoList />
         <VisibilityFilters />
+        <UndoRedo />
     </>
 );
 
