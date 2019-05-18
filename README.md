@@ -13,18 +13,17 @@ yarn && yarn start
 ## React Hooks
 
 ```javascript
-import { useActions, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setFilter } from "../redux/actions";
+import { useCallback } from "react";
 
-// connect
 export const useFilter = () => {
-    // mapDispatchToProps
-    const { setFilterAction } = useActions(
-        {
-            setFilterAction: filter => setFilter(filter)
-        },
-        []
-    );
-    // mapStateToProps
+    const dispatch = useDispatch();
+
+    const setFilterAction = useCallback(filter => dispatch(setFilter(filter)), [
+        dispatch
+    ]);
+
     const activeFilter = useSelector(state => state.visibilityFilter);
     return {
         setFilterAction,
@@ -35,6 +34,6 @@ export const useFilter = () => {
 
 ## Future
 
--   Look into `useMemo` and `useCallback`
--   Use `styled-component` or `emotion`
--   How about Web Component?
+-   [x] Look into `useMemo` and `useCallback`
+-   [ ] Use `styled-component` or `emotion`
+-   [ ] How about Web Component?
